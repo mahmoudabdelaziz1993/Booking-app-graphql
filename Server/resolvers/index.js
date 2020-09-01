@@ -1,9 +1,9 @@
-const eventResolvers= require( './events')
+const tweetResolvers= require( './tweets')
 const userResolvers= require( './users')
 const palygroundResolvers= require( './playground')
 
  const root = {
-    ... eventResolvers,
+    ... tweetResolvers,
     ... userResolvers,
     ...palygroundResolvers
 }

@@ -1,12 +1,9 @@
 const { buildSchema } = require('graphql');
 
 module.exports = buildSchema(`
-input EventInput {
-    title :String!
-    description :String!
-    price : Float!
-   
-   
+input TweetInput {
+    body :String!
+    userId : ID!,
 }
 input UserInput {
     name : String!
@@ -14,33 +11,52 @@ input UserInput {
     password :String!
 }
 
+input LikeInput {
+    tweetId : ID!,
+    userId : ID!,
+}
+input CommentInput {
+    tweetId : ID!,
+    userId : ID!,
+    body :String!
+
+
+}
 type  User {
     _id : ID!
     name : String!
     email :String!
     password :String!
-    createdEvents : [Event]
+    createdTweets : [Tweet]
+    comments : [Comment]
     createdAt:String!
     updatedAt:String!
     
 }
 
-type Event {
+type Tweet {
     _id : ID!
-    title :String!
-    description :String!
-    price : Float!
-    date :String!
+    body :String!
+    author: User!
+    likesCount :  Int
+    createdAt:String!
+    updatedAt:String!
+    comments: [Comment]
+
+}
+
+type Comment {
+    _id : ID!
+    body :String!
     author: User!
     createdAt:String!
     updatedAt:String!
-
 }
   
 type Query {
     hello: String
     random: Float!
-    events : [Event!]!
+    tweets : [Tweet!]!
     users : [User!]!
 }
 
@@ -48,7 +64,11 @@ type Query {
    
 type Mutation {
        createUser (input : UserInput) : User
-       createEvent (input : EventInput) : Event
+       createTweet (input : TweetInput) : Tweet
+       deleteTweet(input : LikeInput) : Boolean
+       updateTweet(input : CommentInput) : Tweet
+       createComment (input :CommentInput) : Tweet
+       like(input : LikeInput) :Tweet
 }
 
 `);

@@ -6,13 +6,31 @@ const UserSchema = Schema({
     name: { type: String, required: true },
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true },
-    createdEvents :[
+    createdTweets: [
         {
-            type:Schema.Types.ObjectId ,
-            ref : 'Event'
+            type: Schema.Types.ObjectId,
+            ref: 'Event'
         }
     ]
-} , {timestamps: true})
+}, { timestamps: true })
+
+
+/** Comparing hashed password   */
+UserSchema.methods.comparePassword = async function (pass) {
+    password = pass.toString();
+    return await bcrypt.compare(password, this.password);
+};
+
+UserSchema.statics.isValidUser = async function (email, password) {
+    try {
+        let user = await this.findOne({ email });
+        let check = await user.comparePassword(password);
+        if (check) return user;
+    } catch (error) {
+        throw new Error('user is not exist :( ');
+    }
+
+}
 
 /** Hashing password  */
 UserSchema.pre('save', async function (next) {
@@ -28,4 +46,4 @@ UserSchema.pre('save', async function (next) {
     }
 });
 
-module.exports = mongoose.model('User' , UserSchema)
+module.exports = mongoose.model('User', UserSchema)
