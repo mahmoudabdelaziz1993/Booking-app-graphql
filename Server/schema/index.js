@@ -20,6 +20,8 @@ type  User {
     email :String!
     password :String!
     createdEvents : [Event]
+    createdAt:String!
+    updatedAt:String!
     
 }
 
@@ -30,6 +32,8 @@ type Event {
     price : Float!
     date :String!
     author: User!
+    createdAt:String!
+    updatedAt:String!
 
 }
   
