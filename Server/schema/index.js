@@ -4,7 +4,7 @@ module.exports = buildSchema(
 `
     input TweetInput {
     body: String!
-    userId: ID!,
+    author: ID!,
     }
     input UserInput {
     name: String!
@@ -74,10 +74,11 @@ module.exports = buildSchema(
     type Mutation {
         createUser(input: UserInput): User
         createTweet(input: TweetInput): Tweet
+        like(input: LikeInput): Tweet
         deleteTweet(input: LikeInput): Boolean
         updateTweet(input: CommentInput): Tweet
         createComment(input: CommentInput): Tweet
-        like(input: LikeInput): Tweet
+       
     }
     `
 

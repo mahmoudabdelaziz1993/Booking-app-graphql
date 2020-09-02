@@ -21,7 +21,7 @@ module.exports = {
             throw error;
         }
     },
-
+/* Need req.user */
     like: async (args) => {
         try {
             let { tweetId, userId } = args.input
@@ -36,6 +36,7 @@ module.exports = {
         }
     },
 
+    /* Need req.user */
     createTweet: async (args) => {
         try {
             let tweet = new Tweet({ ...args.input, date: new Date().toISOString() })
@@ -46,7 +47,7 @@ module.exports = {
         }
     },
 
-
+/* Need req.user */
 
     deleteTweet: async (args) => {
         try {
@@ -60,7 +61,7 @@ module.exports = {
             return error
         }
     },
-
+/* Need req.user */
     updateTweet: async (args) => {
 
         try {
@@ -87,7 +88,6 @@ module.exports = {
             let tweet = await Tweet.findById(tweetId)
             if (!tweet) throw new Error(' Tweet not found !! ')
             tweet.comments.push({ "author": { _id: userId }, body })
-            console.log(tweet)
             await tweet.save()
             return tweet
         } catch (error) {
