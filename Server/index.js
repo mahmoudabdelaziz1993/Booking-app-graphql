@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const appSchema = require('./schema/index')
 const appResolvers = require('./resolvers/index')
+const IsAuth = require('./middleware/is-Auth')
 
 
 
@@ -12,7 +13,7 @@ const appResolvers = require('./resolvers/index')
 
 const app = express();
 app.use(bodyParser.json())
-
+app.use(IsAuth)
 
 
 // GraphQi meddileware

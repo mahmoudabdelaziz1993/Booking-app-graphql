@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 var bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const Schema = mongoose.Schema
+
+
+
 
 const UserSchema = Schema({
     name: { type: String, required: true },
@@ -13,6 +17,11 @@ const UserSchema = Schema({
         }
     ]
 }, { timestamps: true })
+
+/** virtual token field  */
+UserSchema.virtual('token').get(function () {
+    return jwt.sign({ id: this.id }, process.env.JWT_TOKEN_SEC, { expiresIn: "2h" });
+});
 
 
 /** Comparing hashed password   */

@@ -20,6 +20,16 @@ module.exports ={
         } catch (error) {
             throw error
         }
+    },
+    login : async({email,password})=>{
+        try {
+            if (!email.length||!password.length) throw Error ('missing parameter')
+            let user = await User.isValidUser(email,password)
+            return user
+        } catch (error) {
+            return error
+            
+        }
     }
 
 }
