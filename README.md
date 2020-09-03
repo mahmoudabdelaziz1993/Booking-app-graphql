@@ -30,4 +30,4 @@ $ npm run dev
 
 ## live-Demo
 
-[Demo](https://graphql-twitter-like.herokuapp.com/graphql)
+[Demo](https://graphql-twitter-like.herokuapp.com)
