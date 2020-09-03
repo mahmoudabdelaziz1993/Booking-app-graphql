@@ -1,67 +1,73 @@
+/* define root values */
+
+:root {
+    --main-bg-color: #eeeeee;
+    --primary-color: #00adb5;
+    --secondary-color: #222831;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Peta&display=swap');
-*, body {
+body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: var(--primary-color);
     font-family: 'Lexend Peta', sans-serif;
 }
 
-body {
-  height: 100vh;
-}
-.container{
-    width: 100%;
-    padding: 2em 1em;
-    margin: 0 auto;
-    
-    
-}
-#Capa{
-    width: 60px;
-    height: 60px;
-    
-}
-
-.hero{
-    text-align: left;
-    width: 70%;
-}
-.hero h1 {
-font-weight: 700;
-margin-bottom: 1em;
-font-size: 2em;
-}
-.hero p {
-    line-height: 1.8em;
-    padding: 5px;
-}
-.hero a {
-    background: deeppink;
-    padding: 1em 1em;
-    color: white;
-    border-radius: 59px;
-    font-size: initial;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-   
-    margin: 20px 8px 0 0;
-text-align: center;
-}
-.cover{
-    width: 30%;
-    height: auto;
-}
-
-.wrapper{
+.wrapper {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-
-   
-}
-.wrapper .hero {
     flex-direction: column;
-    align-items: flex-start;
-    order: 1;
+    height: 100vh;
+}
+
+.page-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.hero p {
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    line-height: 1.5em;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+}
+
+.link a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    background: var(--primary-color);
+    font-size: 2em;
+    padding: 10px;
+    margin: 10px;
+    width: 160px;
+    border-radius: 4px;
+}
+
+.logo {
+    width: 45px;
+    height: 60px;
+    padding: 10px;
 }
