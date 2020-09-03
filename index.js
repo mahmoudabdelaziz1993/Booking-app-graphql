@@ -12,10 +12,14 @@ const IsAuth = require('./middleware/is-Auth')
 
 
 const app = express();
+app.use(express.static('public'))
 app.use(bodyParser.json())
 app.use(IsAuth)
 
 
+app.get('/',(req,res)=>{
+    res.sendfile('/index.html')
+})
 // GraphQi meddileware
 app.use('/graphql', graphqlHTTP({
     schema: appSchema,

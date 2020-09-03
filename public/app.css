@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Peta&display=swap');
+*, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend Peta', sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+.container{
+    width: 100%;
+    padding: 2em 1em;
+    margin: 0 auto;
+    
+    
+}
+#Capa{
+    width: 60px;
+    height: 60px;
+    
+}
+
+.hero{
+    text-align: left;
+    width: 70%;
+}
+.hero h1 {
+font-weight: 700;
+margin-bottom: 1em;
+font-size: 2em;
+}
+.hero p {
+    line-height: 1.8em;
+    padding: 5px;
+}
+.hero a {
+    background: deeppink;
+    padding: 1em 1em;
+    color: white;
+    border-radius: 59px;
+    font-size: initial;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+   
+    margin: 20px 8px 0 0;
+text-align: center;
+}
+.cover{
+    width: 30%;
+    height: auto;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+   
+}
+.wrapper .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    order: 1;
+}
