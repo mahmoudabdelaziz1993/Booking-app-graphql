@@ -57,8 +57,8 @@ body {
 .link a {
     display: block;
     text-decoration: none;
-    color: black;
-    background: var(--primary-color);
+    color: white;
+    background: var(--secondary-color);
     font-size: 2em;
     padding: 10px;
     margin: 10px;
